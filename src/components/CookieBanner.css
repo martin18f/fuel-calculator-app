@@ -1,0 +1,68 @@
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 15px 20px;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cookie-banner:hover {
+    background: rgba(0, 0, 0, 0.95);
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 768px) {
+    .cookie-banner {
+      bottom: 10px;               /* menšia medzera od spodného okraja */
+      left: 10px;                 /* medzera od ľavého okraja */
+      right: 10px;                /* medzera od pravého okraja */
+      max-width: calc(100% - 20px);/* šírka s ohľadom na medzery */
+      padding: 10px 15px;         /* mierne zmenšený padding pre menšie obrazovky */
+    }
+  }
+  
+  .cookie-banner-content {
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  .cookie-banner-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .cookie-banner-text {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  
+  .cookie-banner-link {
+    color: #4fc3f7;
+    text-decoration: underline;
+  }
+  
+  .cookie-banner-accept {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cookie-banner-accept:hover {
+    background-color: #115293;
+  }
+  

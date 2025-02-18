@@ -1,0 +1,143 @@
+.tabs {
+    display: flex;
+    position: relative;
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+    padding: 0.75rem;
+    border-radius: 99px;
+  }
+  
+  /* Všetky vnútorné prvky budú nad gliderom */
+  .tabs * {
+   
+    
+    z-index: 2;
+  }
+  
+  /* Skryté radio inputy */
+  .container input[type="radio"] {
+    display: none;
+  }
+  
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 50px;
+    font-size: 0.8rem;
+    color: --text-color;
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+  }
+  
+  /* Ak by si chcel použiť notifikáciu, prípadne ju môžeš pridať do vnútra labelu */
+  /* Môžeš túto časť odstrániť, ak notifikácie nepotrebuješ */
+  .notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.8rem;
+    height: 0.8rem;
+    position: absolute;
+    top: 10px;
+    left: 30%;
+    font-size: 10px;
+    margin-left: 0.75rem;
+    border-radius: 50%;
+    margin: 0px;
+    background-color: #e6eef9;
+    transition: 0.15s ease-in;
+  }
+  
+  /* Zmení farbu labelu pre vybranú možnosť */
+  .container input[type="radio"]:checked + label {
+    color: #185ee0;
+  }
+  
+  /* Ak label obsahuje element s triedou .notification, zmení sa aj jeho štýl */
+  .container input[type="radio"]:checked + label > .notification {
+    background-color: #185ee0;
+    color: #fff;
+    margin: 0px;
+  }
+  
+  /* Pravidlá pre presun glideru pod vybranú možnosť */
+  /* Pre každú možnosť nastavíme posun vynásobený 100% (šírka jednej záložky) */
+  .container input[id="radio-1"]:checked ~ .glider {
+    transform: translateX(0%);
+  }
+  
+  .container input[id="radio-2"]:checked ~ .glider {
+    transform: translateX(100%);
+  }
+  
+  .container input[id="radio-3"]:checked ~ .glider {
+    transform: translateX(200%);
+  }
+  
+  .container input[id="radio-4"]:checked ~ .glider {
+    transform: translateX(300%);
+  }
+  
+  .container input[id="radio-5"]:checked ~ .glider {
+    transform: translateX(400%);
+  }
+  
+  .container input[id="radio-6"]:checked ~ .glider {
+    transform: translateX(500%);
+  }
+  
+  .container input[id="radio-7"]:checked ~ .glider {
+    transform: translateX(600%);
+  }
+  
+  .container input[id="radio-8"]:checked ~ .glider {
+    transform: translateX(700%);
+  }
+  
+  .glider {
+    position: absolute;
+    display: flex;
+    height: 30px;
+    width: 50px;
+    background-color: #e6eef9;
+    z-index: 1;
+    border-radius: 99px;
+    transition: 0.25s ease-out;
+  }
+
+  @media (max-width: 768px) {
+    .glider {
+      position: absolute;
+      display: flex;
+      height: 30px;
+      /* Nastavíme dynamickú šírku – každá záložka zaberá 1/8 dostupnej šírky */
+      width: calc(100% / 8);
+      background-color: #e6eef9;
+      z-index: 1;
+      border-radius: 99px;
+      transition: 0.25s ease-out;
+      /* Vycentrujeme glider pomocou CSS premennej:
+         (var(--tab-index, 0) + 0.5) * (100%/8) určí stred záložky,
+         odčítame 50% šírky glidera, aby bol jeho stred presne v tejto pozícii */
+      transform: translateX(calc(((var(--tab-index, 0) + 0.5) * 100% / 8) - 50%));
+    }
+  }
+  
+  .light-theme {
+    --bg-color: linear-gradient(135deg, #eef2f3, #ffffff);
+    --text-color: #333333;
+    --section-bg: #ffffff;
+    --secondary-color: #ffffff; /* Pôvodná šedá pre Light mode */
+  }
+  
+  .dark-theme {
+    --bg-color: #181818;
+    --text-color: #f0f0f0;
+    --section-bg: #494949;
+    --secondary-color: #5c5c5c; /* Alebo iná šedá pre Dark mode */
+  }
+  
